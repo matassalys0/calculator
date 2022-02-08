@@ -1,10 +1,10 @@
 body {
-   font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif; 
+    font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .calculator {
-    width: 324px;
-    height: 600px;
+    width: 280px;
+    height: 500px;
     border-style: solid;
     border-radius: 30px;
     background-color: #1e1b1e;
@@ -13,10 +13,10 @@ body {
 }
 
 .calc div {
-    width: 324px;
+    width: 280px;
 }
 
-.calc-commands {
+.calc-top {
     height: 40px;
     margin-bottom: 1rem;
 }
@@ -42,4 +42,71 @@ hr {
     height: 1px;
     background-color: grey;
     border: none;
+    margin-bottom: 1rem;
+}
+
+.calc-commands {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.calc-commands .num-btn {
+    height: 60px;
+    width: 60px;
+    font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif;
+    color: grey;
+    font-size: 20px;
+    border-style: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: transparent;
+    background-position: center;
+    transition: background 0.4s;
+}
+
+.num-btn:active {
+    background-color: grey;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.calc-commands .command-btn {
+    height: 60px;
+    width: 60px;
+    font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 20px;
+    border-style: none;
+    outline: none;
+    border-radius: 50%;
+    background-position: center;
+    background-color: #444144;
+    transition: background 0.4s;
+}
+
+.command-btn:active {
+    background-color: grey;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.calc-commands .equal-btn {
+    height: 60px;
+    width: 60px;
+    font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 20px;
+    border-style: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: lightgreen;
+    transition: background 0.4s;
+}
+
+.equal-btn:active {
+    background-color: white;
+    background-size: 100%;
+    transition: background 0s;
 }
