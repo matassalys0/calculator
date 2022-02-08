@@ -22,8 +22,6 @@ function operate(operation) {
     }
 }
 
-
-
 let operation = {
     num1: 5,
     num2: 10,

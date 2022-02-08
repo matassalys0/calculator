@@ -1,0 +1,45 @@
+body {
+   font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.calculator {
+    width: 324px;
+    height: 600px;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: #1e1b1e;
+    box-shadow: 2.5px 5px #888888;
+    padding: 1rem;
+}
+
+.calc div {
+    width: 324px;
+}
+
+.calc-commands {
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.calc-input {
+    height: 60px;
+    color: white;
+    font-size: 48px;
+    text-align: end;
+    line-height: 60px;
+}
+
+.calc-answer {
+    height: 60px;
+    color: white;
+    font-size: 48px;
+    text-align: end;
+    line-height: 70px;
+    font-weight: 600;
+}
+
+hr {
+    height: 1px;
+    background-color: grey;
+    border: none;
+}
