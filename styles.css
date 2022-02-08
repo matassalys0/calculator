@@ -4,7 +4,7 @@ body {
 
 .calculator {
     width: 280px;
-    height: 500px;
+    height: 570px;
     border-style: solid;
     border-radius: 30px;
     background-color: #1e1b1e;
@@ -101,6 +101,7 @@ hr {
     border-style: none;
     outline: none;
     border-radius: 50%;
+    background-position: center;
     background-color: lightgreen;
     transition: background 0.4s;
 }
