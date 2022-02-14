@@ -1,6 +1,13 @@
 'use strict'
 
 const inputDiv = document.querySelector('.calc-input');
+const answerDiv = document.querySelector('.calc-answer');
+
+let operation = {
+    num1: null,
+    num2: null,
+    operator: null
+}
 
 const operatorArray = ['+', '-', '/', '*'];
 let add = (a, b) => a + b;
@@ -26,18 +33,32 @@ function operate(operation) {
 }
 
 function numClick(e) {
-    inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
+        inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
 }
 
 function operatorClick(e) {
-    inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
+    if(operation.operator === null && inputDiv.textContent !== '') {
+        operation.num1 = Number(inputDiv.textContent);
+        operation.operator = e.srcElement.textContent;
+        inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
+    }
 }
 
-let operation = {
-    num1: 5,
-    num2: 10,
-    operator: '*'
+function calcExpession(e) {
+    if(operation.operator !== null && inputDiv.textContent !== '') {
+        const inputArray = inputDiv.textContent.split(operation.operator);
+        
+        if(inputArray[1] !== '') {
+            operation.num2 = inputArray[1];
+
+            const ans = operate(operation);
+           
+            answerDiv.textContent = ans;
+        }
+    }
 }
+
+
 
 const numBtns = document.querySelectorAll('.num-btn');
 numBtns.forEach(button => {
@@ -49,6 +70,7 @@ operatorBtns.forEach(button => {
     button.addEventListener('click', operatorClick);
 });
 
-//const equalButton = document.querySelector('.operator-btn');
+const equalButton = document.querySelector('.equal-btn');
+equalButton.addEventListener('click', calcExpession);
 
 console.log(operate(operation));
