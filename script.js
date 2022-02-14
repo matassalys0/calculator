@@ -49,16 +49,31 @@ function calcExpession(e) {
         const inputArray = inputDiv.textContent.split(operation.operator);
         
         if(inputArray[1] !== '') {
-            operation.num2 = inputArray[1];
+            operation.num2 = Number(inputArray[1]);
 
             const ans = operate(operation);
            
             answerDiv.textContent = ans;
+            operation = {
+                num1: ans,
+                num2: null,
+                operator: null,
+            }
+            inputDiv.textContent = ans;
         }
     }
 }
 
+function clear(e) {
+    inputDiv.textContent = '';
+    answerDiv.textContent = '';
 
+    operation = {
+        num1: null,
+        num2: null,
+        operator: null
+    }
+}
 
 const numBtns = document.querySelectorAll('.num-btn');
 numBtns.forEach(button => {
@@ -72,5 +87,8 @@ operatorBtns.forEach(button => {
 
 const equalButton = document.querySelector('.equal-btn');
 equalButton.addEventListener('click', calcExpession);
+
+const clearButton = document.querySelector('.clear-btn');
+clearButton.addEventListener('click', clear);
 
 console.log(operate(operation));
