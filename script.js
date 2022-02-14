@@ -27,6 +27,7 @@ function operate(operation) {
         return multiply(operation.num1, operation.num2);
         break;
         case('/'):
+        if(operation.num2 === 0) return operation.num1;
         return divide(operation.num1, operation.num2);
         break;
     }
@@ -42,24 +43,30 @@ function operatorClick(e) {
         operation.operator = e.srcElement.textContent;
         inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
     }
+    else if(operation.operator !== null && operation.num1 !== null) {
+        calcExpession(e, e.srcElement.textContent);
+    }
 }
 
-function calcExpession(e) {
+function calcExpession(e, nextOp = null) {
     if(operation.operator !== null && inputDiv.textContent !== '') {
         const inputArray = inputDiv.textContent.split(operation.operator);
         
         if(inputArray[1] !== '') {
             operation.num2 = Number(inputArray[1]);
 
-            const ans = operate(operation);
+            //getting the answer (and round it to two decimals)
+            const ans = Math.round(operate(operation) * 100) / 100;
            
+            //this resets the display and operation
             answerDiv.textContent = ans;
             operation = {
                 num1: ans,
                 num2: null,
-                operator: null,
+                operator: nextOp,
             }
-            inputDiv.textContent = ans;
+            //display changes based if nextOp is defined
+            nextOp = null ? inputDiv.textContent = ans : inputDiv.textContent = ans + nextOp;
         }
     }
 }
