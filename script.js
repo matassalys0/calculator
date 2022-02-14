@@ -33,8 +33,12 @@ function operate(operation) {
     }
 }
 
-function numClick(e) {
-        inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
+function numClick(e) {  
+    if(e.srcElement.textContent === '.')
+    {
+        if(!inputDiv.textContent.includes('.')) inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
+    }
+    else inputDiv.textContent = inputDiv.textContent + e.srcElement.textContent;
 }
 
 function operatorClick(e) {
