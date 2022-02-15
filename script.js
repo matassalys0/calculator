@@ -2,6 +2,7 @@
 
 const inputDiv = document.querySelector('.calc-input');
 const answerDiv = document.querySelector('.calc-answer');
+document.addEventListener('keydown', keyboardInput);
 
 let operation = {
     num1: null,
@@ -52,6 +53,17 @@ function operatorClick(e) {
     }
 }
 
+function operatorClickKeyboard(e) {
+    if(operation.operator === null && inputDiv.textContent !== '') {
+        operation.num1 = Number(inputDiv.textContent);
+        operation.operator = e;
+        inputDiv.textContent = inputDiv.textContent + e;
+    }
+    else if(operation.operator !== null && operation.num1 !== null) {
+        calcExpession(e, e);
+    }
+}
+
 function calcExpession(e, nextOp = null) {
     if(operation.operator !== null && inputDiv.textContent !== '') {
         const inputArray = inputDiv.textContent.split(operation.operator);
@@ -99,6 +111,20 @@ function random(e) {
     inputDiv.textContent = inputDiv.textContent + randomNumber;
 }
 
+function keyboardInput(e) {
+    if(!isNaN(e.key)) inputDiv.textContent = inputDiv.textContent + e.key;
+    else if(operatorArray.includes(e.key)) {
+        operatorClickKeyboard(e.key);
+    }
+    else if(e.key === 'Enter') calcExpession(e);
+    else if(e.key === 'Backspace') backspace(e);
+    else if(e.key === 'Escape') clear(e);
+    else if(e.key === '.')
+    {
+        if(!inputDiv.textContent.includes('.')) inputDiv.textContent = inputDiv.textContent + e.key;
+    }
+} 
+
 const numBtns = document.querySelectorAll('.num-btn');
 numBtns.forEach(button => {
     button.addEventListener('click', numClick);
@@ -120,5 +146,3 @@ backButton.addEventListener('click', backspace);
 
 const randomButton = document.querySelector('.rand-btn');
 randomButton.addEventListener('click', random);
-
-console.log(operate(operation));
