@@ -86,6 +86,14 @@ function clear(e) {
     }
 }
 
+function backspace(e) {
+    const lastString = inputDiv.textContent.slice(inputDiv.textContent.length - 1);
+    if(operatorArray.includes(lastString)) {
+        operation.operator = null;
+    }
+    inputDiv.textContent = inputDiv.textContent.slice(0, inputDiv.textContent.length - 1);
+}
+
 const numBtns = document.querySelectorAll('.num-btn');
 numBtns.forEach(button => {
     button.addEventListener('click', numClick);
@@ -101,5 +109,9 @@ equalButton.addEventListener('click', calcExpession);
 
 const clearButton = document.querySelector('.clear-btn');
 clearButton.addEventListener('click', clear);
+
+const backButton = document.querySelector('.backspace-btn');
+backButton.addEventListener('click', backspace);
+
 
 console.log(operate(operation));
