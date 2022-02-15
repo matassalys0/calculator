@@ -94,6 +94,11 @@ function backspace(e) {
     inputDiv.textContent = inputDiv.textContent.slice(0, inputDiv.textContent.length - 1);
 }
 
+function random(e) {
+    const randomNumber = Math.floor(Math.random() * 999) + 1;
+    inputDiv.textContent = inputDiv.textContent + randomNumber;
+}
+
 const numBtns = document.querySelectorAll('.num-btn');
 numBtns.forEach(button => {
     button.addEventListener('click', numClick);
@@ -113,5 +118,7 @@ clearButton.addEventListener('click', clear);
 const backButton = document.querySelector('.backspace-btn');
 backButton.addEventListener('click', backspace);
 
+const randomButton = document.querySelector('.rand-btn');
+randomButton.addEventListener('click', random);
 
 console.log(operate(operation));
