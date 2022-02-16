@@ -1,5 +1,9 @@
 body {
     font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif; 
+    display: flex;
+    justify-content: center;
+    background: rgb(25,135,138);
+    background: linear-gradient(90deg, rgba(25,135,138,1) 0%, rgba(0,0,0,1) 50%);
 }
 
 .calculator {
@@ -10,6 +14,7 @@ body {
     background-color: #1e1b1e;
     box-shadow: 2.5px 5px #888888;
     padding: 1rem;
+    margin-top: 5rem;
 }
 
 .calc div {
@@ -22,6 +27,8 @@ body {
 }
 
 .calc-input {
+    overflow:hidden;
+    width: 280px;
     height: 60px;
     color: white;
     font-size: 48px;
@@ -30,6 +37,8 @@ body {
 }
 
 .calc-answer {
+    overflow:hidden;
+    width: 280px;
     height: 60px;
     color: white;
     font-size: 48px;
@@ -110,4 +119,11 @@ hr {
     background-color: white;
     background-size: 100%;
     transition: background 0s;
+}
+
+.footer {
+    font-family: 'Rubik', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 20px;
+    margin-top: 2rem;
 }
